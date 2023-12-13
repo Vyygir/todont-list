@@ -1,6 +1,5 @@
 use std::collections::HashMap;
-use std::{io, process};
-use std::io::{stdout, Write};
+use std::{io::{stdin, stdout, Write}, process};
 use std::num::ParseIntError;
 use crate::{clean_user_input, clear_screen};
 use crate::item::Item;
@@ -108,7 +107,7 @@ impl TaskInterface {
         stdout().flush().expect("Couldn't flush buffer");
 
         let mut input = String::new();
-        io::stdin().read_line(&mut input).expect("Couldn't read input");
+        stdin().read_line(&mut input).expect("Couldn't read input");
         input = clean_user_input(input);
         callback(input);
     }
@@ -119,7 +118,7 @@ impl TaskInterface {
         }
 
         print!("> ");
-        io::stdout().flush().expect("Couldn't flush buffer");
+        stdout().flush().expect("Couldn't flush buffer");
 
         Self::request_string_input(
             instruction,
