@@ -1,12 +1,12 @@
 #[derive(Debug)]
 pub struct Item {
-    id: isize,
+    id: usize,
     content: String,
     done: bool,
 }
 
 impl Item {
-    pub fn new(id: isize, content: String) -> Item {
+    pub fn new(id: usize, content: String) -> Item {
         Item {
             id,
             content,
@@ -22,7 +22,7 @@ impl Item {
         self.done = true;
     }
 
-    pub fn id(&self) -> isize {
+    pub fn id(&self) -> usize {
         self.id
     }
 

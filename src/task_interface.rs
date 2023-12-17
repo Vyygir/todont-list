@@ -112,7 +112,7 @@ impl TaskInterface {
         callback(input);
     }
 
-    fn request_id_input(instruction: String, mut callback: impl FnMut(isize) -> ()) {
+    fn request_id_input(instruction: String, mut callback: impl FnMut(usize) -> ()) {
         if !instruction.is_empty() {
             println!("{}", instruction);
         }
@@ -123,7 +123,7 @@ impl TaskInterface {
         Self::request_string_input(
             instruction,
             |input| {
-                let id: Result<isize, ParseIntError> = input.parse::<isize>();
+                let id: Result<usize, ParseIntError> = input.parse::<usize>();
 
                 match id {
                     Ok(safe_id) => callback(safe_id),
